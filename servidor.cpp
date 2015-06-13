@@ -1,4 +1,5 @@
 #include "servidor.h"
+#include "cartao.h"
 
 Servidor::Servidor()
 {
@@ -24,29 +25,30 @@ void Servidor::run()
       }
 
 
-      //Recebendo um aluno do cliente
-      if ( bytesLidos = recv(conexaoClienteId, &trem, sizeof(DTrem), 0) < 0 )
+      //Recebendo dados do cliente
+
+      if ( bytesLidos = recv(conexaoClienteId, &rfid, sizeof(Cartao), 0) < 0 )
       {
         perror ("Error recv\n");
         exit(1);
       }
 
-      int id =43;
-      switch (id)
-      {
+//      int id =43;
+//      switch (id)
+//      {
 
-      case 1:
+//      case 1:
 
-          break;
-      case 2:
+//          break;
+//      case 2:
 
-          break;
+//          break;
 
-      default:
-          break;
-      }
+//      default:
+//          break;
+//      }
 
-
+    emit updateInterface(rfid);
       msleep(100);
     }
 }

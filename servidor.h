@@ -1,9 +1,9 @@
 #ifndef SERVIDOR_H
 #define SERVIDOR_H
 
-#include "dtrem.h"
+
 #include <QThread>
-#include <QtCore>
+#include "cartao.h"
 
 #include <QtCore>
 #include <stdio.h>
@@ -34,8 +34,8 @@ public:
     ~Servidor();
 
 signals:
-    void updatetrem(int,int);
-    void updatecontrole(int);
+    void updateInterface(Cartao);
+
 private:
 
     //Identificador do socket
@@ -58,6 +58,8 @@ private:
     //Tamanho do endereço do cliente
     socklen_t enderecoClienteTam;
 
+    //Dados do Cliente
+    Cartao rfid;
 };
 
 #endif // SERVIDOR_H

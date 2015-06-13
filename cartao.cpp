@@ -10,6 +10,10 @@ Cartao::~Cartao()
 
 }
 
+bool Cartao::getPresente()
+{
+    return presente;
+}
 string Cartao::getMacCartao()
 {
     return macCartao;
@@ -42,4 +46,8 @@ void Cartao::setMatricula(string alunomatricula)
 void Cartao::setNome(string name)
 {
     nome = name;
+}
+void Cartao::setPresente(bool status)
+{
+    presente = status;
 }
