@@ -1,5 +1,10 @@
 #include "cartao.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+
 Cartao::Cartao()
 {
 
@@ -14,38 +19,39 @@ bool Cartao::getPresente()
 {
     return presente;
 }
-string Cartao::getMacCartao()
+char* Cartao::getMacCartao()
 {
     return macCartao;
 }
-string Cartao::getImagen()
+char* Cartao::getImagen()
 {
     return imagem;
 }
 
-string Cartao::getMatricula()
+char* Cartao::getMatricula()
 {
     return matricula;
 }
-string Cartao::getNome()
+char* Cartao::getNome()
 {
     return nome;
 }
-void Cartao::setImagem(string imagemaluno)
+void Cartao::setImagem(string  imagemaluno)
 {
-    imagem = imagemaluno;
+    strcpy(imagem, imagemaluno.c_str());
 }
-void Cartao::setMacCartao(string mac)
+void Cartao::setMacCartao(string  mac)
 {
-    macCartao = mac;
+    strcpy(macCartao,mac.c_str());
+
 }
-void Cartao::setMatricula(string alunomatricula)
+void Cartao::setMatricula(string  alunomatricula)
 {
-    matricula = alunomatricula;
+    strcpy(matricula, alunomatricula.c_str());
 }
-void Cartao::setNome(string name)
+void Cartao::setNome(string  name)
 {
-    nome = name;
+    strcpy(nome,name.c_str());
 }
 void Cartao::setPresente(bool status)
 {

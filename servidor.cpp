@@ -33,29 +33,14 @@ void Servidor::run()
         exit(1);
       }
 
-//      int id =43;
-//      switch (id)
-//      {
 
-//      case 1:
-
-//          break;
-//      case 2:
-
-//          break;
-
-//      default:
-//          break;
-//      }
-
-    emit updateInterface(rfid);
+      emit updateInterface(rfid.getNome(),rfid.getMatricula(),rfid.getMacCartao(),rfid.getImagen());
       msleep(100);
     }
 }
 
 bool Servidor::criarSocket()
 {
-
 
     //Criando o socket (internet, TCP, IP)
     socketId = socket(AF_INET, SOCK_STREAM, 0);

@@ -1,6 +1,7 @@
 #ifndef CARTAO_H
 #define CARTAO_H
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Cartao
@@ -8,21 +9,21 @@ class Cartao
 public:
     Cartao();
     ~Cartao();
-    string getMacCartao();
-    string getNome();
-    string getMatricula();
-    string getImagen();
+    char* getMacCartao();
+    char* getNome();
+    char* getMatricula();
+    char* getImagen();
     bool getPresente();
     void setMacCartao(string mac);
-    void setNome(string name);
+    void setNome(string  name);
     void setMatricula(string alunomatricula);
     void setImagem(string imagemaluno);
     void setPresente(bool status);
 private:
-    string macCartao;
-    string nome;
-    string matricula;
-    string imagem;
+    char macCartao[100];
+    char nome[100];
+    char matricula[100];
+    char imagem[100];
     bool presente;
 
 };

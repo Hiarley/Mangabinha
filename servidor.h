@@ -34,7 +34,7 @@ public:
     ~Servidor();
 
 signals:
-    void updateInterface(Cartao);
+    void updateInterface(QString,QString,QString,QString);
 
 private:
 

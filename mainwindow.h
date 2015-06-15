@@ -19,7 +19,8 @@ public:
     ~MainWindow();
 
 public slots:
-    void updateInterfaceProfessor(Cartao);
+    void updateInterfaceProfessor(QString,QString,QString,QString);
+
 private:
     Ui::MainWindow *ui;
 

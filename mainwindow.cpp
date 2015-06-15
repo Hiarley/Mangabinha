@@ -16,7 +16,7 @@ void MainWindow::criarListaPresenca(){
     model2->setHorizontalHeaderLabels(headers);
     QList<QStandardItem *> listaItem;
     // caminho e nome do arquivo
-    QFile arquivo("/home/hiarley/Magabinha/listaAlunos");
+    QFile arquivo("/home/anderson/ProjetosQT/Mangabinha/listaAlunos");
     // variáveis que guardarão o conteúdo e a linha atual do arquivo
     QString conteudo, linha;
     // o arquivo foi aberto com sucesso?
@@ -45,29 +45,23 @@ void MainWindow::criarListaPresenca(){
            model2->appendRow(listaItem);
 }
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-//    Interface = new Servidor();
-//    connect(Interface,SIGNAL(updateInterface(Cartao)),SLOT(updateInterfaceProfessor(Cartao));
+    Interface = new Servidor();
+    connect(Interface,SIGNAL(updateInterface(QString,QString,QString,QString)),SLOT(updateInterfaceProfessor(QString,QString,QString,QString)));
 
-QStandardItemModel *model = new QStandardItemModel();
-model->clear();
-   QList<QLabel *> listaItem;
+    Interface->criarSocket();
+    Interface->esperarConexao();
+    Interface->start();
 
-    QLabel *label;
-     QPixmap pixmap("/home/anderson/Imagens/Seleção_014.png");
-    label->setPixmap(pixmap);
-    label->setVisible(true);
-    listaItem<<label;
+
+
     criarListaPresenca();
-     // Previously declared as QStringListModel *strListM1
-    //model->appendRow(listaItem);
-    ui->listView->setModel(model);
-    ui->tableView->setModel(model2);
 
 
 }
@@ -77,7 +71,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::updateInterfaceProfessor(Cartao)
+void MainWindow::updateInterfaceProfessor(QString nome, QString matricula, QString maccartao,QString imagem)
 {
+    cout<<nome.toStdString()<<"\n";
+    cout<<matricula.toStdString()<<"\n";
+    cout<<maccartao.toStdString()<<"\n";
+    cout<<imagem.toStdString()<<"\n";
 
 }
